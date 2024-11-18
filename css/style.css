@@ -1,0 +1,42 @@
+body {
+    font-family: 'Nanum Pen Script', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 14px;
+}
+
+nav {
+    background-color: #F8E4E2;
+    border-radius: 5px;
+}
+
+nav p{
+    text-align: center;
+    font-size: 28px;
+    margin: 10px;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+
+/* Make the list items display horizontally */
+nav ul li {
+    display: inline;
+    margin-right: 20px; /* Space between items */
+}
+
+/* Style the links */
+nav ul li a {
+    text-decoration: none;
+    color: #DF3B3A; /* Change to your desired color */
+    padding: 10px;
+    display: inline-block;
+}
+
+footer{
+    background-color: #F8E4E2;
+    border-radius: 5px;
+}
