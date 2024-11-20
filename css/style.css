@@ -1,6 +1,7 @@
 body {
     font-family: 'Nanum Pen Script', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: 14px;
+    background-color: #fffcf5;
 }
 
 nav {
@@ -52,7 +53,7 @@ nav ul li a {
 #current{
     border: 1px solid black;
     background-color: white;
-    border-radius: 10px;
+    border-radius: 30px;
 }
 
 footer{
@@ -82,3 +83,33 @@ footer{
     padding: 10px;
     margin:0px;
 }
+
+.travel-container {
+    display: grid; /* Enable grid layout */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Create responsive columns */
+    gap: 16px; /* Space between grid items */
+    padding: 16px; /* Optional padding around the container */
+}
+
+.travel-img figure {
+    margin: 0; /* Remove default margins on the figure */
+    text-align: center; /* Center text within each grid item */
+}
+
+.travel-img img {
+    width: 100%; /* Make the image responsive */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 8px; /* Optional: add rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: add a shadow */
+}
+
+@media(min-width: 768px){
+    body{
+        font-size: 20px;
+        margin: 20px 100px;
+    }
+    #about{
+        grid-template-columns: auto auto;
+    }
+}
+
