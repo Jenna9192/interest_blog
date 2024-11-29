@@ -84,22 +84,63 @@ footer{
     margin:0px;
 }
 
-.travel-container {
-    display: grid; /* Enable grid layout */
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Create responsive columns */
-    gap: 16px; /* Space between grid items */
-    padding: 16px; /* Optional padding around the container */
+.location-bar, .bar {
+    display: flex; /* Align items in a row */
+    justify-content: flex-start;
+    gap: 30px;
+    padding: 10px;
+    border-radius: 5px;
 }
 
-.travel-img figure {
+.location-btn, .bar ul li {
+    background-color: #fff;
+    border: 1px solid gray;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 30px;
+}
+
+.location-btn:hover, .bar ul li:hover {
+    background-color: #F8E4E2;
+}
+
+.location-btn.selected {
+    background-color: #F8E4E2; /* Change to your preferred color */
+}
+
+.travel-container, .arch-gallery, .concert-gallery, .artist, .gallery {
+    display: grid; /* Enable grid layout */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Create responsive columns */
+    gap: 50px; /* Space between grid items */
+    padding: 20px; /* Optional padding around the container */
+}
+
+.travel-img, .interest-img{
+    background-color: white;
+    padding: 15px;
+    border: 1px solid #DF3B3A;
+    display: flex;
+    justify-content: center;
+}
+
+.travel-img:nth-child(odd) {
+    transform: rotate(2deg); /* Rotate clockwise by 2 degrees */
+}
+
+/* Rotate even children (2nd, 4th, 6th, etc.) to the left (counterclockwise) */
+.travel-img:nth-child(even) {
+    transform: rotate(-2deg); /* Rotate counterclockwise by  degrees */
+}
+
+.travel-img figure, .interest-img figure {
     margin: 0; /* Remove default margins on the figure */
     text-align: center; /* Center text within each grid item */
 }
 
-.travel-img img {
+.travel-img img, .interest-img img {
     width: 100%; /* Make the image responsive */
-    height: auto; /* Maintain aspect ratio */
-    border-radius: 8px; /* Optional: add rounded corners */
+    height: 80%; /* Maintain aspect ratio */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: add a shadow */
 }
 
@@ -108,7 +149,7 @@ footer{
         font-size: 20px;
         margin: 20px 100px;
     }
-    #about{
+    #about {
         grid-template-columns: auto auto;
     }
 }
