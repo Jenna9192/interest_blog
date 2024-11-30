@@ -1,19 +1,87 @@
 body {
     font-family: 'Nanum Pen Script', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-size: 14px;
+    font-size: 20px;
     background-color: #fffcf5;
+    margin: 20px;
+    animation: fadeIn 2s ease-in;
 }
+
+
+/* Generating random floating circles */
+@keyframes float {
+    0% {
+        opacity: 0;
+        transform: translate(0, 0);
+    }
+    50% {
+        opacity: 1;
+        transform: translate(50px, 50px); /* Move circles randomly */
+    }
+    100% {
+        opacity: 0;
+        transform: translate(-50px, -50px); /* Move in the opposite direction */
+    }
+}
+
+
+/* Randomize circle sizes and positions */
+/* Animated Circles CSS */
+
+.circle {
+    position: absolute;
+    background-color: rgba(223, 59, 58, 0.3); 
+    border-radius: 50%;
+    animation: float 10s infinite ease-in-out;
+    z-index: -1;
+}
+
+/* Keyframes for the floating animation */
+@keyframes float {
+    0% {
+        transform: translate(0, 0);
+        opacity: 1;
+    }
+    50% {
+        transform: translate(100px, 100px); /* Moves in a random direction */
+        opacity: 0.7;
+    }
+    100% {
+        transform: translate(-100px, -100px); /* Moves in the opposite direction */
+        opacity: 1;
+    }
+}
+
 
 nav {
     background-color: #F8E4E2;
     border-radius: 10px;
     padding: 10px;
+    position: sticky;
+    top: 0; /* Sticks the element to the top of the page */
+    z-index: 1000;
+    margin: -20px;
+    border: 20px solid #fffcf5;
 }
 
 h1{
     text-align: center;
     font-size: 28px;
     margin: 10px;
+    text-decoration: underline;
+    text-decoration-style: wavy;
+}
+
+h2, p {
+    text-align: center;
+}
+
+p{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 16px;
+}
+
+section{
+    margin-bottom: 50px;
 }
 
 nav ul {
@@ -43,17 +111,29 @@ nav ul li {
 }
 
 /* Style the links */
-nav ul li a {
+nav ul li a, .bar a {
     text-decoration: none;
     color: black;
     padding: 5px;
     display: inline-block;
+    transition: transform 0.3s;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+    transform: scale(1.2);
 }
 
 #current{
     border: 1px solid black;
     background-color: white;
     border-radius: 30px;
+    padding: 5px 16px;
+}
+
+#current:hover{
+    background-color: black;
+    color: white;
 }
 
 footer{
@@ -92,6 +172,13 @@ footer{
     border-radius: 5px;
 }
 
+.bar ul{
+    list-style-type: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
 .location-btn, .bar ul li {
     background-color: #fff;
     border: 1px solid gray;
@@ -99,6 +186,10 @@ footer{
     cursor: pointer;
     font-size: 16px;
     border-radius: 30px;
+}
+
+.bar li {
+    margin-right: 20px;
 }
 
 .location-btn:hover, .bar ul li:hover {
@@ -112,7 +203,7 @@ footer{
 .travel-container, .arch-gallery, .concert-gallery, .artist, .gallery {
     display: grid; /* Enable grid layout */
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Create responsive columns */
-    gap: 50px; /* Space between grid items */
+    gap: 30px; /* Space between grid items */
     padding: 20px; /* Optional padding around the container */
 }
 
@@ -122,6 +213,7 @@ footer{
     border: 1px solid #DF3B3A;
     display: flex;
     justify-content: center;
+    position: relative;
 }
 
 .travel-img:nth-child(odd) {
@@ -138,19 +230,98 @@ footer{
     text-align: center; /* Center text within each grid item */
 }
 
+
 .travel-img img, .interest-img img {
     width: 100%; /* Make the image responsive */
     height: 80%; /* Maintain aspect ratio */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: add a shadow */
 }
 
+/* Adding tape effect using ::before and ::after */
+.gallery .interest-img:nth-child(1)::before,
+.gallery .interest-img:nth-child(1)::after {
+    content: '';
+    position: absolute;
+    width: 175px; /* Width of the tape */
+    height: 30px; /* Height of the tape */
+    background-color: rgba(255, 255, 255, 0.5); /* Tape color (light brown) */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Slight shadow to make it look realistic */
+}
+
+/* Positioning the tape at the top-left corner */
+.gallery .interest-img:nth-child(1)::before {
+    top: 30px;
+    left: -50px;
+    transform: rotate(-45deg); /* Rotate for a more realistic effect */
+}
+
+/* Positioning the tape at the top-right corner */
+.gallery .interest-img:nth-child(1)::after {
+    bottom: 30px;
+    right: -50px;
+    transform: rotate(-45deg); /* Rotate for a more realistic effect */
+}
+
+.interest-img::before,
+.travel-img::before {
+    content: '';
+    position: absolute;
+    width: 50px; /* Width of the tape */
+    height: 30px; /* Height of the tape */
+    background-color: rgba(255, 255, 255, 0.7); /* Tape color (light brown) */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Slight shadow to make it look realistic */
+    transform: rotate(-45deg); /* Rotate for a more realistic effect */
+    top: -15px; /* Position the tape slightly above the image */
+    left: 50%; /* Position it in the center horizontally */
+    transform: translateX(-50%) rotate(-45deg); /* Move it to center and rotate */
+}
+
+.gallery{
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.gallery div:nth-child(1){
+    grid-column: 1/span 2;
+    grid-row: 1/span 2;
+}
+
+.gallery div{
+    transition: transform 0.3s ease;
+}
+
+.gallery div:hover{
+    transform: scale(1.1);
+    box-shadow: 0 12px 24px rgba(234, 27, 27, 0.2);
+}
+
 @media(min-width: 768px){
     body{
         font-size: 20px;
-        margin: 20px 100px;
+        margin: 50px 100px;
     }
     #about {
         grid-template-columns: auto auto;
+    }
+
+    h1{
+        font-size: 56px;
+    }
+
+    h2{
+        font-size: 36px;
+    }
+
+    p{
+        font-size: 20px;
+    }
+    .gallery{
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: auto auto;
+    }
+
+    .gallery div:nth-child(1){
+        grid-column: 1/span 2;
+        grid-row: 1/span 2;
     }
 }
 
