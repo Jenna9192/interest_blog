@@ -233,7 +233,7 @@ footer{
 .travel-img {
     width: 200px;
     height: 300px;
-    justify-content: center;
+    justify-self: center;
 }
 
 .card {
@@ -308,13 +308,13 @@ footer{
 }
 
 
-.travel-img:nth-child(odd) {
+.travel-img:nth-child(odd), .artist .interest-img:nth-child(odd) {
     transform: rotate(10deg); /* Rotate clockwise by 2 degrees */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 /* Rotate even children (2nd, 4th, 6th, etc.) to the left (counterclockwise) */
-.travel-img:nth-child(even) {
+.travel-img:nth-child(even), .artist .interest-img:nth-child(even) {
     transform: rotate(-10deg); /* Rotate counterclockwise by  degrees */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -384,14 +384,29 @@ footer{
     grid-row: 1/span 2;
 }
 
-.gallery div{
+.gallery div, .artist .interest-img{
     transition: transform 0.3s ease;
 }
 
-.gallery div:hover{
+.gallery div:hover, .artist .interest-img:hover{
     transform: scale(1.05);
     box-shadow: 0 12px 24px rgba(52, 44, 44, 0.2);
 }
+
+.concert-gallery{
+    justify-content: center;
+}
+
+.spotify-icon {
+    color: black; /* Spotify green */
+    text-decoration: none; /* Remove underline */
+    transition: color 0.3s ease; /* Smooth color transition */
+}
+
+.spotify-icon:hover {
+    color: #DF3B3A; /* Slightly brighter green on hover */
+}
+
 
 @media(min-width: 768px){
     body{
@@ -430,6 +445,10 @@ footer{
     nav{
         margin: -50px;
         border: 50px solid #fffcf5;
+    }
+
+    .artist{
+        grid-template-columns: repeat(5, 1fr);
     }
 }
 
