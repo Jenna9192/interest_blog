@@ -407,6 +407,9 @@ footer{
     color: #DF3B3A; /* Slightly brighter green on hover */
 }
 
+#music{
+    margin-top: 100px;
+}
 
 @media(min-width: 768px){
     body{
