@@ -455,3 +455,74 @@ footer{
     }
 }
 
+@media (prefers-reduced-motion: reduce) {
+    body {
+        animation: none; /* Remove fade-in animation */
+    }
+
+    .circle {
+        animation: none; /* Disable circle animation */
+    }
+
+    nav ul li a, .bar a, .location-btn, .bar ul li a {
+        transition: none; /* Remove hover transitions */
+    }
+
+    .travel-img, .interest-img {
+        transform: none; /* Remove any hover transformations */
+        height:auto;
+    }
+
+    .travel-img:hover, .interest-img:hover, .artist .interest-img {
+        transform: none; /* No hover effect */
+        box-shadow: none; /* No shadow effect */
+    }
+
+    .card {
+        transition: none; /* Remove flip effect */
+        transform: none; /* No 3D effect */
+        display: flex; /* Display content of both sides together */
+        flex-direction: column;
+        border:#DF3B3A solid 1px;
+        background-color: white;
+        height: auto;
+    }
+
+    .card-front,
+    .card-back {
+        border: none;
+        position: static; /* Remove absolute positioning */
+        transform: none; /* Remove flipping rotation */
+        z-index: auto; /* No stacking needed */
+        backface-visibility: visible; /* Ensure both sides are visible */
+        background-color: none;
+        justify-content: center;
+    }
+
+    .card-back {
+        margin-left: -10px;
+    }
+
+    .card-front:hover, .card-back:hover{
+        box-shadow: none;
+    }
+
+    .card.flipped {
+        transform: none; /* Disable flip */
+    }
+    .gallery div:hover, .artist .interest-img:hover{
+        transform: none;
+        box-shadow: none;
+    }
+
+    .travel-img:nth-child(odd), .artist .interest-img:nth-child(odd){
+        transform: none;
+        transition: none;
+    }
+
+    .travel-img:nth-child(even), .artist .interest-img:nth-child(even){
+        transform: none;
+        transition: none;
+    }
+}
+
