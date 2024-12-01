@@ -1,3 +1,9 @@
+document.querySelectorAll('.card').forEach(card => {
+    card.addEventListener('click', () => {
+        card.classList.toggle('flipped');
+    });
+});
+
 document.addEventListener('DOMContentLoaded', function() {
     const locationButtons = document.querySelectorAll('.location-btn');
     
@@ -52,6 +58,10 @@ document.addEventListener('DOMContentLoaded', function() {
         document.body.appendChild(circle);
     }
 });
+
+
+
+
 
 
 
