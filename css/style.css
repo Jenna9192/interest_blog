@@ -1,7 +1,27 @@
+:root {
+    --font-color: #000;
+    --background-color: #fffcf5;
+    --nav-background: #F8E4E2;
+    --accent-color: #DF3B3A;
+    --hover-color: #fff;
+    --link-color: #000;
+    --hover-link-color: #DF3B3A;
+}
+
+/* Dark theme variables */
+.dark-mode {
+    --font-color: #fff;
+    --background-color: #1e1e1e;
+    --nav-background: #333;
+    --accent-color: #DF3B3A;
+    --hover-color: #333;
+    --link-color: #fff;
+    --hover-link-color: #FF6464;
+}
 body {
     font-family: 'Nanum Pen Script', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: 20px;
-    background-color: #fffcf5;
+    background-color: var(--background-color);
     margin: 20px;
     animation: fadeIn 2s ease-in;
 }
@@ -53,14 +73,14 @@ body {
 
 
 nav {
-    background-color: #F8E4E2;
+    background-color: var(--nav-background);
     border-radius: 10px;
     padding: 10px;
     position: sticky;
     top: 0; /* Sticks the element to the top of the page */
-    z-index: 1000;
+    z-index: 3;
     margin: -20px;
-    border: 20px solid #fffcf5;
+    border: 20px solid var(--background-color);
 }
 
 h1{
@@ -73,6 +93,10 @@ h1{
 
 h2, h3, p {
     text-align: center;
+}
+
+h1, h2, h3, p {
+    color: var(--font-color);
 }
 
 p{
@@ -101,6 +125,7 @@ nav ul {
     top:10px;
     right: 20px;
     color: red;
+    z-index: 5;
 }
 
 
@@ -113,7 +138,7 @@ nav ul li {
 /* Style the links */
 nav ul li a, .bar a {
     text-decoration: none;
-    color: black;
+    color: var(--link-color);
     padding: 5px;
     display: inline-block;
     transition: transform 0.3s;
@@ -137,7 +162,8 @@ nav ul li a:hover {
 }
 
 footer{
-    background-color: #F8E4E2;
+    background-color: var(--nav-background);
+    color: var(--font-color);
     border-radius: 5px;
     text-align: center;
 }
@@ -254,17 +280,19 @@ footer{
 
 .card-front {
     border: #DF3B3A solid 1px;
-    background-color: #fff;
+    background-color: var(--hover-color);
     display: flex;
     justify-content: center;
     align-items: center;
+    color: var(--font-color);
 }
 
 .card-back {
     border: #DF3B3A solid 1px;
-    background-color: white;
+    background-color: var(--hover-color);
     transform: rotateY(180deg); /* Rotate back 180 degrees to hide it initially */
     padding: 10px;
+    color: var(--font-color);
 }
 
 .card-front:hover, .card-back:hover {
@@ -483,8 +511,8 @@ footer{
         transform: none; /* No 3D effect */
         display: flex; /* Display content of both sides together */
         flex-direction: column;
-        border:#DF3B3A solid 1px;
-        background-color: white;
+        background-color: var(--hover-color);
+        border: 1px solid var(--accent-color);
         height: auto;
     }
 
@@ -524,5 +552,62 @@ footer{
         transform: none;
         transition: none;
     }
+}
+
+@media (prefers-color-scheme: dark) {
+    body{
+        background-color: #1e1e1e;
+        color:#fff;
+    }
+
+    h1, h2, h3, p {
+        color: white;
+    }
+
+    .circle {
+        background-color:  rgba(255, 255, 255, 0.3);
+    }
+
+    nav {
+        background-color: #333;
+        border-radius: 10px;
+        padding: 10px;
+        position: sticky;
+        top: 0; /* Sticks the element to the top of the page */
+        z-index: 1;
+        margin: -20px;
+        border: 20px solid #1e1e1e;
+    }
+
+    nav ul li a{
+        color:#fff;
+    }
+
+    #current{
+        color: black;
+    }
+
+    #about p{
+        background-color: #1e1e1e;
+    }
+
+    footer{
+        color: white;
+        background-color: black;
+    }
+
+    .card-front, .card-back {
+        background-color: #444;
+        color: #fff;
+    }
+
+    .interest-img{
+        background-color:#444 ;
+    }
+
+    .spotify-icon{
+        color: white;
+    }
+    
 }
 
