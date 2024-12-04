@@ -26,6 +26,9 @@ body {
     animation: fadeIn 2s ease-in;
 }
 
+*:focus{
+    border: #DF3B3A solid 5px;
+}
 
 /* Generating random floating circles */
 @keyframes float {
